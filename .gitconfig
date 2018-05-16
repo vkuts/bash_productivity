@@ -1,0 +1,33 @@
+# This is Git's per-user configuration file.
+[user]
+  name = Vlad Kutsenko
+  email = vlad.kutsenko@consensys.net
+[alias]
+  co = checkout
+  ci = commit -m
+  s = status
+  d = diff
+  br = branch
+  pu = push -u origin HEAD
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+[core]
+  excludesfile = /Users/vlad/.gitignore_global
+[diff]
+  tool = sourcetree
+[difftool]
+  prompt = false
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
+[merge]
+  tool = meld
+[mergetool]
+  prompt = false
+[mergetool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
+[mergetool "sourcetree"]
+  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
